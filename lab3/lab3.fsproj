@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="config.fs" />
+    <Compile Include="lagrange_interpolate.fs" />
+    <Compile Include="linear_interpolate.fs" />
+    <Compile Include="console_output.fs" />
+    <Compile Include="console_input.fs" />
+    <Compile Include="process_data.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>
