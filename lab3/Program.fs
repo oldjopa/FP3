@@ -7,13 +7,22 @@ open config
 
 
 let parseArgs (args: string array) =
-    let defaultConfig = { Algorithms = ["linear"]; SamplingRate = 1.0 }
-    args 
-    |> Array.fold (fun config arg ->
-        match arg.Split('=') with
-        | [| "--algorithms"; algs |] -> { config with Algorithms = algs.Split(',') |> Array.toList }
-        | [| "--rate"; rate |] -> { config with SamplingRate = float rate }
-        | _ -> config) defaultConfig
+    let defaultConfig =
+        { Algorithms = [ "linear" ]
+          SamplingRate = 1.0 }
+
+    args
+    |> Array.fold
+        (fun config arg ->
+            match arg.Split('=') with
+            | [| "--algorithms"; algs |] ->
+                { config with
+                    Algorithms = algs.Split(',') |> Array.toList }
+            | [| "--rate"; rate |] ->
+                { config with
+                    SamplingRate = float rate }
+            | _ -> config)
+        defaultConfig
 
 
 [<EntryPoint>]
