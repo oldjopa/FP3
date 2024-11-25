@@ -30,7 +30,6 @@ let processData (config: Config) (points: seq<float * float>) =
                     | _ -> ()
             }
 
-        // let accumulatedPoints = Seq.scan (fun acc point -> acc @ [point]) [] points
         let accumulatedPoints =
             Seq.scan
                 (fun acc point ->

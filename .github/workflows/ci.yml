@@ -41,8 +41,8 @@ jobs:
     
       
         
-      - name: Run project
-        run: dotnet run --project ./lab3
+      # - name: Run project
+      #   run: dotnet run --project ./lab3
 
 
       - name: Tests
