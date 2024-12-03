@@ -7,6 +7,7 @@ open System
 let readInput (input: TextReader) =
     seq {
         while true do
+            printfn "Enter point"
             let line: string = input.ReadLine()
 
             if line = null then
