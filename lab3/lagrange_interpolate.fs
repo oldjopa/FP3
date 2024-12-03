@@ -5,7 +5,7 @@ let lagrangeInterpolate (points: (float * float) array) (samplingRate: float) =
     let xs, ys = points |> Array.unzip
     let step = samplingRate
     let minX = xs.[0]
-    let maxX = Array.max xs
+    let maxX = xs.[3]
 
     seq {
         for x in
