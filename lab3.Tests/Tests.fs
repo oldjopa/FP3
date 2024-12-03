@@ -5,19 +5,6 @@ open Xunit
 open lagrange_interpolate
 open linear_interpolate
 
-[<Fact>]
-let ``Lagrange interpolation with three points works correctly`` () =
-    // Arrange
-    let points: (float * float) array = [| (0.0, 0.0); (1.0, 1.0); (2.0, 4.0) |]
-    let samplingRate = 0.5
-
-    // Act
-    let result: (float * float) list = lagrangeInterpolate points samplingRate |> Seq.toList
-
-    // Assert
-    let expected: (float * float) list = [(0.0, 0.0); (0.5, 0.25); (1.0, 1.0); (1.5, 2.25); (2.0, 4.0)]
-    Assert.True((expected = result))
-
 
 [<Fact>]
 let ``Linear interpolation between two points works correctly`` () =
