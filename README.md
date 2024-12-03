@@ -24,17 +24,21 @@
 
 linear_interpolate.fs
 ```fsharp
-let linearInterpolate (x1, y1) (x2, y2) (samplingRate: float) =
-    seq {
-        let step = samplingRate
-        let mutable x = x1
+module linear_interpolate
 
-        while x <= x2 do
+let linearInterpolate (x1, y1) (x2, y2) (samplingRate: float) =
+    let rec loop x =
+        if x <= x2 then
             let t = (x - x1) / (x2 - x1)
             let y = y1 + t * (y2 - y1)
-            yield (x, y)
-            x <- x + step
-    }
+            seq {
+                yield (x, y)
+                yield! loop (x + samplingRate)
+            }
+        else
+            Seq.empty
+
+    loop x1
 
 ```
 
