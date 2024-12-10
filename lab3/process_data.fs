@@ -24,7 +24,7 @@ let processData (config: Config) (points: seq<float * float>) =
                         yield ("linear", linearResults)
                     | "lagrange" when Seq.length currentPoints >= 4 ->
                         let lagrangeResults =
-                            lagrangeInterpolate (Array.ofSeq (currentPoints)) config.SamplingRate
+                            lagrangeInterpolate (List.ofSeq (currentPoints)) config.SamplingRate
 
                         yield ("lagrange", lagrangeResults)
                     | _ -> ()
